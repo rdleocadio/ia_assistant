@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -8,4 +9,9 @@ Rails.application.routes.draw do
 
 
   # root "posts#index"
+
+  resources :users
+  get "pages", to: "pages#index"
+  resources :tarefas, only:["new", "create", "show", "update", "show", "index"]
+
 end
