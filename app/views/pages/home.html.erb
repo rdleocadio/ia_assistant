@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container my-5 text-center">
+  <h1 class="fw-bold">Assistente Inteligente de Organização Diária</h1>
+  <p class="lead mt-3">Transforme tarefas soltas em um cronograma claro e executável — com IA.</p>
+<% if user_signed_in? %>
+    <a class="btn btn-primary mt-4" href="<%= tarefas_path %>">📅 Ver Minhas Tarefas</a>
+  <% else %>
+    <a class="btn btn-success mt-4" href="<%= new_user_session_path %>">Entrar</a>
+    <a class="btn btn-outline-dark mt-4 ms-2" href="<%= new_user_registration_path %>">Criar Conta</a>
+  <% end %>
+</div>
