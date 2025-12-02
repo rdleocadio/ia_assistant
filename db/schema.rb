@@ -10,43 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_12_01_210925) do
+ActiveRecord::Schema[7.1].define(version: 2025_12_01_210725) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "chats", force: :cascade do |t|
-    t.bigint "tarefa_id", null: false
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tarefa_id"], name: "index_chats_on_tarefa_id"
-  end
-
-  create_table "mensagems", force: :cascade do |t|
-    t.text "conteudo"
-    t.string "role"
-    t.bigint "chat_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chat_id"], name: "index_mensagems_on_chat_id"
-  end
-
-  create_table "tarefas", force: :cascade do |t|
+  create_table "tasks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title"
     t.text "content"
-    t.date "prazo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_tarefas_on_user_id"
-  end
-
-  create_table "task_days", force: :cascade do |t|
-    t.bigint "tarefa_id", null: false
-    t.date "dia"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tarefa_id"], name: "index_task_days_on_tarefa_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,8 +35,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_01_210925) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "chats", "tarefas"
-  add_foreign_key "mensagems", "chats"
-  add_foreign_key "tarefas", "users"
-  add_foreign_key "task_days", "tarefas"
+  add_foreign_key "tasks", "users"
 end

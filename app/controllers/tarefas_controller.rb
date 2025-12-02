@@ -1,2 +1,0 @@
-class TarefasController < ApplicationController
-end
