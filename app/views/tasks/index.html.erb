@@ -1,0 +1,10 @@
+<div class="container my-5 text-center">
+  <h1 class="fw-bold">Assistente Inteligente de Organização Diária</h1>
+  <p class="lead mt-3">Transforme tarefas soltas em um cronograma claro e executável — com IA.</p>
+</div>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= link_to task.title, task_path(task) %></li>
+  <% end %>
+</ul>
