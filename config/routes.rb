@@ -14,4 +14,12 @@ Rails.application.routes.draw do
   get "tarefas", to: "tarefas#index"
   resources :tarefas, only:["new", "create", "show", "update", "show", "index"]
 
+  resources :tarefas, only: [:index, :show] do
+    resources :chats, only: [:create]
+  end
+
+  resources :chats, only: :show do
+    resources :messages, only: [:create]
+  end
+
 end
