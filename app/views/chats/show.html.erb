@@ -1,12 +1,17 @@
-<h2>Assistente de Tarefas</h2>
+<div class="container my-4">
+  <h1><%= @chat.title %></h1>
 
-<div id="chat-box">
-  <% @messages.each do |msg| %>
-    <p><strong><%= msg.role %>:</strong> <%= msg.conteudo %></p>
+  <div class="chat-box border rounded p-3 mb-3" style="max-height: 60vh; overflow-y: auto;">
+    <% @messages.each do |message| %>
+      <div class="mb-2 <%= message.role %>">
+        <strong><%= message.role.capitalize %>:</strong>
+        <%= message.content %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= form_with model: [@chat, @message], local: true do |f| %>
+    <%= f.text_area :content, rows: 2, class: "form-control mb-2" %>
+    <%= f.submit "Enviar", class: "btn btn-primary" %>
   <% end %>
 </div>
-
-<%= form_with url: chats_path, method: :post do %>
-  <%= text_area_tag :message %>
-  <%= submit_tag "Enviar" %>
-<% end %>

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
 
   # Chats com IA
-  resources :chats, only: ["index", "new", "create", "show"] do
-    resources :messages, only: ["create"]
+  resources :chats, only: [:index, :new, :create, :show] do
+    resources :messages, only: [:create]
   end
 end
