@@ -1,0 +1,12 @@
+<h2>Assistente de Tarefas</h2>
+
+<div id="chat-box">
+  <% @messages.each do |msg| %>
+    <p><strong><%= msg.role %>:</strong> <%= msg.conteudo %></p>
+  <% end %>
+</div>
+
+<%= form_with url: chats_path, method: :post do %>
+  <%= text_area_tag :message %>
+  <%= submit_tag "Enviar" %>
+<% end %>

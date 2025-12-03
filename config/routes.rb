@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'chats/show'
+  get 'chats/create'
   devise_for :users
   root to: "tasks#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -11,5 +13,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :tasks, only:["index", "show"]
+  resource :chats, only: [:show, :create]
+
 
 end
