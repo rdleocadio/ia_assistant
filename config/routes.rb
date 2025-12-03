@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'chats/show'
+  get 'chats/create'
   devise_for :users
 
   # Página principal
@@ -7,8 +9,13 @@ Rails.application.routes.draw do
   # Painel do usuário
   get "/dashboard", to: "pages#dashboard"
 
-  # Tasks
-  resources :tasks, only: ["index", "show"]
+
+  # root "posts#index"
+
+  resources :tasks, only:["index", "show"]
+  resource :chats, only: [:show, :create]
+
+
 
   # Chats com IA
   resources :chats, only: ["index", "new", "create", "show"] do
