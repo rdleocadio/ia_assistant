@@ -70,4 +70,3 @@ Task.create!([
     status: "pendente"
   }
 ])
->>>>>>> controllers_chat
