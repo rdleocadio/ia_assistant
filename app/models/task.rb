@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
   has_many :chats, dependent: :destroy
 
-  validates :name, :module, :content, presence: true
+  validates :title, :content, presence: true
 end
