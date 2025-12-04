@@ -5,4 +5,3 @@ RubyLLM.configure do |config|
 end
 
 
-#  system_prompt = "You are a virtual assistant that helps people with organizing daily tasks. You have to help them to break down them problem into small, actionable steps, without giving away solutions. Answer concisely in Markdown."

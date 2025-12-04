@@ -12,8 +12,11 @@ class ChatsController < ApplicationController
     @chat.task = @task
     @chat.user = current_user
 
-    @chat.save!
-
+    if @chat.save
     redirect_to chat_path(@chat)
+    else
+      @chats = @title.chats.where(user: current_user)
+      render "tasks/show"
+    end
   end
 end

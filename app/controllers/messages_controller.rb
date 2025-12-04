@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 
-  SYSTEM_PROMPT = "You are a Personal Assistant.\n\n Help me complete my tasks in small practical steps, without providing solutions.\n\nRespond concisely in Markdown."
+  SYSTEM_PROMPT = "You are a virtual assistant that helps people with organizing daily tasks. You have to help them to break down them problem into small, actionable steps, without giving away solutions. Answer concisely in Markdown."
 
   def create
     @chat = current_user.chats.find(params[:chat_id])
@@ -21,6 +21,8 @@ class MessagesController < ApplicationController
     else
       render "chats/show", status: :unprocessable_entity
     end
+
+
   end
 
   private
@@ -30,7 +32,7 @@ class MessagesController < ApplicationController
   end
 
   def instructions
-    [SYSTEM_PROMPT, challenge_context, @task.system_prompt].compact.join("\n\n")
+    [SYSTEM_PROMPT, task_context, @task.system_prompt].compact.join("\n\n")
   end
 
   def message_params

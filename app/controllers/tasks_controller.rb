@@ -5,6 +5,6 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    @chat = Chat.new
+    @chats = @task.chats.where(user: current_user)
   end
 end
