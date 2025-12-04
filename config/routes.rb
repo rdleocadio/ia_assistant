@@ -13,9 +13,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :tasks, only:["index", "show"]
-  resource :chats, only: [:show, :create]
-
-
 
   # Chats com IA
   resources :chats, only: [:index, :new, :create, :show] do

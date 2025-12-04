@@ -1,29 +1,37 @@
 class MessagesController < ApplicationController
+
+  SYSTEM_PROMPT = "You are a Personal Assistant.\n\n Help me complete my tasks in small practical steps, without providing solutions.\n\nRespond concisely in Markdown."
+
   def create
     @chat = current_user.chats.find(params[:chat_id])
+    @task = @chat.task
 
-    # mensagem do usuário
-    user_message = @chat.messages.create!(
-      role: "user",                 # precisa bater com o tipo/enum da sua tabela
-      content: message_params[:content]
-    )
+    @message = Message.new(message_params)
+    @message.chat = @chat
+    @message.role = "user"
 
-    # chama o LLM com histórico
-    ai_reply = LlmService.chat(
-      user_message: user_message.content,
-      previous_messages: @chat.messages.where.not(id: user_message.id)
-    )
+    if @message.save
+      @chat.generate_title_from_first_message
 
-    # mensagem da IA
-    @chat.messages.create!(
-      role: "assistant",
-      content: ai_reply
-    )
+      ruby_llm_chat = RubyLLM.chat
+      response = ruby_llm_chat.with_instructions(instructions).ask(@message.content)
+      Message.create!(role: "assistant", content: response.content, chat: @chat)
 
-    redirect_to chat_path(@chat)
+      redirect_to chat_path(@chat)
+    else
+      render "chats/show", status: :unprocessable_entity
+    end
   end
 
   private
+
+  def task_context
+    "Here is the context of the task: #{@task.content}."
+  end
+
+  def instructions
+    [SYSTEM_PROMPT, challenge_context, @task.system_prompt].compact.join("\n\n")
+  end
 
   def message_params
     params.require(:message).permit(:content)
