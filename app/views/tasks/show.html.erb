@@ -3,4 +3,19 @@
     <h1><%= @task.title %></h1>
     <%= raw(render_markdown(@task.content)) %>
   </div>
+  <div class="col-md-3">
+    <h2>Chats</h2>
+    <div class="mb-4">
+      <% if @chats.any? %>
+        <ul>
+          <% @chats.each do |chat| %>
+            <li><%= link_to chat.title, chat_path(chat) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        Ainda não existem chats.
+      <% end %>
+    </div>
+    <%= button_to "New chat", task_chats_path(@task), class: "btn btn-primary" %>
+  </div>
 </div>

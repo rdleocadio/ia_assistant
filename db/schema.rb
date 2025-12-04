@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_12_03_182911) do
+ActiveRecord::Schema[7.1].define(version: 2025_12_04_205618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_03_182911) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "task_id", null: false
+    t.string "title"
+    t.index ["task_id"], name: "index_chats_on_task_id"
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
@@ -31,15 +34,11 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_03_182911) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "priority"
-    t.date "prazo"
-    t.string "status"
-    t.index ["user_id"], name: "index_tasks_on_user_id"
+    t.text "system_prompt"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,7 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_03_182911) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chats", "tasks"
   add_foreign_key "chats", "users"
   add_foreign_key "messages", "chats"
-  add_foreign_key "tasks", "users"
 end
