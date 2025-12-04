@@ -1,17 +1,28 @@
-<div class="container my-4">
-  <h1><%= @chat.title %></h1>
+<%= link_to "← #{@chat.task.title}", task_path(@chat.task) %>
 
-  <div class="chat-box border rounded p-3 mb-3" style="max-height: 60vh; overflow-y: auto;">
-    <% @messages.each do |message| %>
-      <div class="mb-2 <%= message.role %>">
-        <strong><%= message.role.capitalize %>:</strong>
-        <%= message.content %>
+<h1 id="chat_title"><%= @chat.title %></h1>
+
+<div id="messages">
+  <% @chat.messages.each do |message| %>
+    <% if message.role == "user" %>
+      <div class="d-flex justify-content-end mb-2">
+        <div class="bg-white px-3 pb-0 pt-3 rounded-pill">
+          <%= raw(render_markdown(message.content)) %>
+        </div>
+      </div>
+    <% elsif message.role == "assistant" %>
+      <div class="d-flex justify-content-start mb-5">
+        <div class="px-3 pb-0 pt-3">
+          <%= raw(render_markdown(message.content)) %>
+        </div>
       </div>
     <% end %>
-  </div>
+  <% end %>
+</div>
 
-  <%= form_with model: [@chat, @message], local: true do |f| %>
-    <%= f.text_area :content, rows: 2, class: "form-control mb-2" %>
-    <%= f.submit "Enviar", class: "btn btn-primary" %>
+<div id="new_message_container">
+  <%= simple_form_for [@chat, @message] do |f| %>
+    <%= f.input :content, label: "Ask a question", required: true, placeholder: "How should I get started with the task?" %>
+    <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
   <% end %>
 </div>

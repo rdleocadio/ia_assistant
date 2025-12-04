@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
   def index
-    @tasks = current_user.tasks.all
+    @tasks = Task.all
   end
 
   def show
-    @task = current_user.tasks.find(params[:id])
-    @chat = Chat.new
+    @task = Task.find(params[:id])
+    @chats = @task.chats.where(user: current_user)
   end
 end
