@@ -1,0 +1,17 @@
+<div class="container my-4">
+  <h1>Criar rotina com IA</h1>
+
+  <%= form_with model: @chat, local: true do |f| %>
+    <div class="mb-3">
+      <%= f.label :title, "Nome da rotina" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :description, "Descreva seu dia, horários e prioridades" %>
+      <%= f.text_area :description, rows: 5, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Criar chat", class: "btn btn-primary" %>
+  <% end %>
+</div>
