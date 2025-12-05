@@ -1,47 +1,47 @@
-<div class="home-hero">
-  <div class="container text-center">
-    <p class="home-badge">✨ Assistente Inteligente de Organização Diária</p>
-    <h1 class="home-title">
-      Transforme tarefas soltas em um cronograma claro e executável — com IA.
-    </h1>
-    <p class="home-subtitle">
-      Descreva seu dia, seus objetivos ou seus desafios. A IA organiza sua rotina em blocos de tempo, com prioridades e lembretes.
-    </p>
+  <div class="home-hero" style="background-color: #FDFAF6";>
+    <div class="container text-center">
+      <p class="home-badge" style="background-color: #99BC85, opacity: 0.5;">✨ Assistente Inteligente de Organização Pessoal</p>
+      <h1 class="home-title">
+        Centralize o problema, resolva por partes. O assistente que estrutura sua rotina.
+      </h1>
+      <p class="home-subtitle">
+        Descreva seus desafios, receba seu plano. O Dedé converte objetivos em agenda.
+      </p>
 
-    <% if user_signed_in? %>
-      <div class="home-actions">
-        <%= link_to "📅 Ver minhas tarefas", tasks_path, class: "btn btn-primary btn-lg me-2 mb-2" %>
-      </div>
-    <% else %>
-      <div class="home-actions">
-        <%= link_to "Entrar", new_user_session_path, class: "btn btn-primary btn-lg me-2 mb-2" %>
-        <%= link_to "Criar conta", new_user_registration_path, class: "btn btn-outline-primary btn-lg mb-2" %>
-      </div>
-    <% end %>
+      <% if user_signed_in? %>
+        <div class="home-actions">
+          <%= link_to "📅 Ver minhas tarefas", tasks_path, class: "btn btn-lg me-2 mb-2", style: "background-color: #99BC85; color: white;" %>
+        </div>
+      <% else %>
+        <div class="home-actions">
+          <%= link_to "Entrar", new_user_session_path, class: "btn btn-lg me-2 mb-2", style: "background-color: #99BC85; color: white;" %>
+          <%= link_to "Criar conta", new_user_registration_path, class: "btn btn-lg mb-2 btn-outline-custom" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div class="home-sections">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="home-card">
-          <h3>1. Selecione sua tarefa</h3>
-          <p>“Tenho trabalho, estudos, casa e filhos — como organizar tudo?” Escreva como você falaria com um amigo.</p>
+  <div class="home-sections">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="home-card">
+            <h3>1. Selecione sua tarefa</h3>
+            <p>“Quero comprar um carro novo, mas não sei por onde começar, o que tenho que fazer?” Escreva como você falaria com um amigo.</p>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="home-card">
-          <h3>2. A IA monta sua rotina</h3>
-          <p>Seu assistente cria blocos de tempo, prioridades e pausas, adaptados à sua realidade e energia do dia.</p>
+        <div class="col-md-4">
+          <div class="home-card">
+            <h3>2. Dedé te ajuda com sua rotina</h3>
+            <p>Ele cria soluções sob medida para o seu cenário, garantindo que cada necessidade específica seja atendida com precisão.</p>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="home-card">
-          <h3>3. Siga, ajuste, repita</h3>
-          <p>Veja suas tarefas no painel diário, marque o que concluiu e gere novas rotinas quando precisar.</p>
+        <div class="col-md-4">
+          <div class="home-card">
+            <h3>3. Siga, ajuste, repita</h3>
+            <p>Execute seu plano, refine os detalhes essenciais e reinicie o ciclo partindo para o próximo problema.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

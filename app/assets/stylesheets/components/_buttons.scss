@@ -1,0 +1,13 @@
+.btn-outline-custom {
+  color: #99BC85;              /* Cor do texto */
+  border-color: #99BC85;       /* Cor da borda */
+  background-color: transparent;
+}
+
+/* Efeito quando passa o mouse */
+.btn-outline-custom:hover {
+  color: #fff;                 /* Texto fica branco */
+  background-color: #99BC85;   /* Fundo fica verde */
+  border-color: #99BC85;
+}
+
