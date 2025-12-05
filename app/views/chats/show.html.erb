@@ -1,28 +1,53 @@
-<%= link_to "← #{@chat.task.title}", task_path(@chat.task) %>
+<div class="chat-page">
+  <header class="chat-header">
+    <%= link_to "← #{@chat.task.title}", task_path(@chat.task), class: "chat-back-link" %>
 
-<h1 id="chat_title"><%= @chat.title %></h1>
+    <div class="chat-header-text">
+      <h1 id="chat_title"><%= @chat.title %></h1>
+      <p class="chat-subtitle">
+        Use o chat para tirar dúvidas sobre esta tarefa.
+      </p>
+    </div>
+  </header>
 
-<div id="messages">
-  <% @chat.messages.each do |message| %>
-    <% if message.role == "user" %>
-      <div class="d-flex justify-content-end mb-2">
-        <div class="bg-white px-3 pb-0 pt-3 rounded-pill">
-          <%= raw(render_markdown(message.content)) %>
+  <section id="messages" class="chat-messages">
+    <% @chat.messages.each do |message| %>
+      <% if message.role == "user" %>
+        <div class="chat-message-row chat-message-row--user">
+          <div class="chat-message chat-message--user">
+            <%= raw(render_markdown(message.content)) %>
+          </div>
         </div>
-      </div>
-    <% elsif message.role == "assistant" %>
-      <div class="d-flex justify-content-start mb-5">
-        <div class="px-3 pb-0 pt-3">
-          <%= raw(render_markdown(message.content)) %>
+      <% elsif message.role == "assistant" %>
+        <div class="chat-message-row chat-message-row--assistant">
+          <div class="chat-avatar">
+            <span>IA</span>
+          </div>
+          <div class="chat-message chat-message--assistant">
+            <%= raw(render_markdown(message.content)) %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+
+  <section id="new_message_container" class="chat-input-area">
+    <%= simple_form_for [@chat, @message] do |f| %>
+      <div class="chat-input-wrapper">
+        <%= f.input :content,
+          label: "Pergunte algo sobre a tarefa:",
+          required: false,
+          placeholder: "Faça suas perguntas aqui...",
+          input_html: { rows: 3 }
+        %>
+
+        <div class="chat-input-actions">
+          <span class="chat-input-hint">
+            Pressione Enter para nova linha • Clique no botão para enviar
+          </span>
+          <%= f.button :submit, 'Perguntar para ao Dedé!', class: 'btn chat-submit-btn' %>
         </div>
       </div>
     <% end %>
-  <% end %>
-</div>
-
-<div id="new_message_container">
-  <%= simple_form_for [@chat, @message] do |f| %>
-    <%= f.input :content, label: "Ask a question", required: true, placeholder: "How should I get started with the task?" %>
-    <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
-  <% end %>
+  </section>
 </div>

@@ -1,21 +1,35 @@
-<div class="row">
-  <div class="col">
-    <h1><%= @task.title %></h1>
-    <%= raw(render_markdown(@task.content)) %>
-  </div>
-  <div class="col-md-3">
-    <h2>Chats</h2>
-    <div class="mb-4">
-      <% if @chats.any? %>
-        <ul>
-          <% @chats.each do |chat| %>
-            <li><%= link_to chat.title, chat_path(chat) %></li>
-          <% end %>
-        </ul>
-      <% else %>
-        Ainda não existem chats.
-      <% end %>
+<div class="task-page">
+  <div class="task-container">
+
+    <!-- BLOCO PRINCIPAL -->
+    <div class="task-main">
+      <h1 class="task-title"><%= @task.title %></h1>
+
+      <div class="task-content">
+        <%= raw(render_markdown(@task.content)) %>
+      </div>
     </div>
-    <%= button_to "New chat", task_chats_path(@task), class: "btn btn-primary" %>
+
+    <!-- SIDEBAR -->
+    <aside class="task-sidebar">
+      <h2 class="task-sidebar-title">Chats</h2>
+
+      <div class="task-chat-list">
+        <% if @chats.any? %>
+          <ul>
+            <% @chats.each do |chat| %>
+              <li>
+                <%= link_to chat.title, chat_path(chat), class: "task-chat-link" %>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p class="task-sidebar-empty">Nenhum chat ainda.</p>
+        <% end %>
+      </div>
+
+      <%= button_to "Peça ajuda ao Dedé!", task_chats_path(@task), class: "btn task-sidebar-btn" %>
+    </aside>
+
   </div>
 </div>
