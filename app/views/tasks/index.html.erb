@@ -1,9 +1,31 @@
-<div class="container my-5 text-center">
+<%# <div class="container my-5 text-center">
   <h1 class="fw-bold">Assistente Inteligente de Organização Diária</h1>
   <p class="lead mt-3">Transforme tarefas soltas em um cronograma claro e executável — com IA.</p>
-  <ul style = "list-style-type: none; padding: 0; margin: 0;" >
-    <% @tasks.each do |task| %>
-      <li><%= link_to task.title, task_path(task) %></li>
-    <% end %>
-  </ul>
+  <ul style = "list-style-type: none; padding: 0; margin: 0;" > %>
+    <%# @tasks.each do |task| %>
+      <li><%#= link_to task.title, task_path(task) %></li>
+    <%# end %>
+  <%# </ul>
+</div> %>
+<%# Desenvolver trabalho acadêmico sobre Inteligência Artificial %>
+
+<div class="landing-hero">
+  <div class="landing-content">
+    <h1>Assistente Inteligente de Organização </h1>
+    <p class="landing-subtitle">
+      Olá, sou o Dedé conte comigo para te ajudar com as tarefas abaixo:
+    </p>
+    <div class="task-notebook">
+      <div class="task-notebook-inner">
+        <p class="task-notebook-label">
+          Tarefas Disponíveis:
+        </p>
+        <ul class="task-list left-align">
+          <% @tasks.each do |task| %>
+            <li class="task-bullet"><%= link_to task.title, task_path(task) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
