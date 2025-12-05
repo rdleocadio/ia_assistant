@@ -8,128 +8,217 @@ user = User.create!(
 # -----------------------------
 # TAREFA 1 – Organizar uma viagem internacional completa
 # -----------------------------
-Task.create!([
-  {
-    title: "Organizar viagem para Portugal - 12 dias",
-    content:
-      "Organizar uma viagem completa de 12 dias para Portugal, incluindo traslados, hospedagem, alimentação, passeios turísticos, reservas e documentos necessários.
-      Itens detalhados da tarefa:
-      1. Definir data exata da viagem (entre abril e maio).
-      2. Pesquisar passagens aéreas com bom custo-benefício, avaliando saídas de diferentes aeroportos.
-      3. Verificar passaporte válido, seguro-viagem e eventuais exigências sanitárias.
-      4. Criar roteiro completo para Lisboa, Porto, Coimbra e Sintra, considerando:
-        - Tempo ideal em cada cidade.
-        - Horários de funcionamento das atrações.
-        - Distâncias entre os pontos turísticos.
-      5. Reservar hospedagens:
-        - 4 noites em Lisboa no centro histórico.
-        - 3 noites no Porto próximo à Ribeira.
-        - 1 noite em Coimbra.
-      6. Planejar deslocamentos internos:
-        - Trem Lisboa → Porto (pesquisar horários e valores).
-        - Trem Porto → Coimbra.
-        - Trem Coimbra → Lisboa.
-      7. Definir passeios principais:
-        - Lisboa: Castelo de São Jorge, Torre de Belém, Mosteiro dos Jerónimos.
-        - Porto: Livraria Lello, Caves de vinho, Ribeira, Ponte Dom Luís I.
-        - Sintra: Palácio da Pena, Quinta da Regaleira.
-      8. Criar checklist final:
-        - Cartões de crédito desbloqueados.
-        - Adaptadores de tomada.
-        - Documentos impressos.
-        - Montar mala considerando clima da primavera.
-      9. Planejar orçamento total estimado dividindo por categorias:
-        - Passagens aéreas
-        - Hospedagens
-        - Alimentação
-        - Transporte interno
-        - Passeios pagos
-        - Reserva para emergências
-      Também incluir:
-      - Comparação entre diferentes opções de hospedagem.
-      - Sugestões de restaurantes e cafés em cada cidade.
-      - Planejamento de horários para evitar filas em atrações muito concorridas."
-  },
-  {
-    title: "Desenvolver trabalho acadêmico sobre Inteligência Artificial",
-    content:
-      "Desenvolver um trabalho acadêmico completo seguindo normas da ABNT, com ao menos 20 páginas, incluindo estrutura teórica, revisão bibliográfica e análise crítica.
-      Etapas detalhadas:
-      1. Definir tema central:
-        - Impacto da inteligência artificial no mercado de trabalho.
-      2. Criar estrutura geral do trabalho:
-        - Introdução
-        - Justificativa
-        - Revisão bibliográfica
-        - Desenvolvimento (3 capítulos)
-        - Considerações finais
-        - Referências
-      3. Montar cronograma de produção:
-        - Pesquisa teórica: 7 dias.
-        - Capítulo 1: 5 dias.
-        - Capítulo 2: 5 dias.
-        - Capítulo 3: 5 dias.
-        - Revisão e formatação: 4 dias.
-      4. Detalhes que devem entrar:
-        - Conceitos fundamentais da IA.
-        - Autores clássicos (Turing, McCarthy, Minsky).
-        - Redes neurais e aprendizado supervisionado.
-        - IA generativa e avanços recentes.
-        - Impacto econômico, social e tecnológico.
-        - Gráficos comparativos (2010–2024).
-      5. Checklist antes da entrega:
-        - Texto revisado gramaticalmente.
-        - Citações e referências conforme ABNT.
-        - Numeração correta.
-        - Figuras com legenda e fonte.
-        - Revisão final de coerência e coesão.
-      Também incluir:
-      - Comparação entre diferentes abordagens teóricas.
-      - Sugestão de autores contemporâneos.
-      - Organização clara entre capítulos para facilitar leitura."
-  },
-  {
-    title: "Planejar festa de aniversário com 50 convidados",
-    content:
-      "Planejar uma festa de aniversário completa para 50 convidados, incluindo orçamento, logística, alimentação, decoração e cronograma do evento.
-      Detalhamento completo:
-      1. Escolha do local:
-        - Salão de festas ou espaço aberto.
-        - Verificar capacidade, custo, acessibilidade e estacionamento.
-      2. Orçamento detalhado:
-        - Alimentação (buffet, finger food ou serviço volante).
-        - Bebidas diversas.
-        - Decoração (tema, cores, iluminação).
-        - Mobiliário extra (mesas, cadeiras, toalhas).
-        - DJ, playlist ou músico ao vivo.
-        - Bolo, doces e lembrancinhas.
-      3. Lista de convidados:
-        - Criar lista nominal para 50 pessoas.
-        - Enviar convites digitais.
-        - Criar planilha de confirmações (RSVP).
-      4. Menu:
-        - Entradas variadas.
-        - Pratos principais.
-        - Sobremesas.
-        - Opções vegetarianas e veganas.
-      5. Decoração:
-        - Escolher tema (ex.: tropical, clássico, moderno).
-        - Comprar itens decorativos.
-        - Montar mesa principal (bolo, painel, docinhos).
-      6. Logística do dia do evento:
-        - Buscar bolo no horário combinado.
-        - Chegada do fotógrafo.
-        - Recebimento da equipe de buffet.
-        - Teste de som e iluminação.
-        - Organização da mesa de presentes.
-      7. Checklist final:
-        - Confirmar fornecedores 48h antes.
-        - Verificar limpeza do local antes e depois da festa.
-        - Garantir cadeiras e mesas suficientes.
-        - Criar cronograma detalhado de tudo que deve acontecer no evento.
-      Também incluir:
-      - Controle de orçamento total.
-      - Alternativas de cardápio caso haja convidados com restrições alimentares.
-      - Detalhamento de montagem e desmontagem da decoração."
-  }
-])
+Task.create!(
+  title: "Organizar viagem para Portugal - 12 dias",
+  content: <<~MD
+
+<span style='color: #99BC85; font-size:20px;'> **Planejar uma viagem completa incluindo traslados, hospedagem, alimentação, passeios, reservas e documentos.** </span>
+
+---
+
+<span style='color: #99BC85; font-size:18px;'> 📅 **Etapas Principais** </span>
+
+1. Definir data exata da viagem
+   - Entre abril e maio.
+
+2. Pesquisar passagens aéreas
+   - Avaliar diferentes aeroportos e preços.
+
+3. Documentação
+   - Passaporte válido
+   - Seguro-viagem
+   - Regras sanitárias
+
+---
+
+<span style='color: #99BC85; font-size:18px;'> 🗺️ **Roteiro Sugerido** </span>
+
+<span style='color: #99BC85; font-size:16px;'>  **Lisboa (4 noites)** </span>
+- Castelo de São Jorge
+- Torre de Belém
+- Mosteiro dos Jerónimos
+
+<span style='color: #99BC85; font-size:16px;'> **Porto (3 noites)** </span>
+- Livraria Lello
+- Caves de vinho
+- Ribeira
+- Ponte Dom Luís I
+
+<span style='color: #99BC85; font-size:16px;'> **Sintra (1 dia)** </span>
+- Palácio da Pena
+- Quinta da Regaleira
+
+<span style='color: #99BC85; font-size:16px;'> **Coimbra (1 noite)** </span>
+
+---
+
+<span style='color: #99BC85; font-size:18px;'> 🏨 **Hospedagens** </span>
+
+- 4 noites — Lisboa (centro histórico)
+- 3 noites — Porto (Ribeira)
+- 1 noite — Coimbra
+
+---
+
+<span style='color: #99BC85; font-size:18px;'> 🚆 **Deslocamentos Internos** </span>
+
+- Lisboa → Porto (trem)
+- Porto → Coimbra
+- Coimbra → Lisboa
+
+---
+
+<span style='color: #99BC85; font-size:18px;'> 🎒 **Checklist Final** </span>
+
+- Cartões desbloqueados
+- Adaptadores
+- Documentos impressos
+- Mala para clima de primavera
+
+---
+
+<span style='color: #99BC85; font-size:18px;'> 💶 **Planejamento Financeiro** </span>
+
+Categorias:
+- Passagens
+- Hospedagem
+- Alimentação
+- Transporte
+- Passeios
+- Reserva emergencial
+
+> Inclua também comparação de hospedagens e sugestões de restaurantes.
+MD
+)
+
+Task.create!(
+  title: "Desenvolver trabalho acadêmico sobre Inteligência Artificial",
+  content: <<~MD
+<span style='color: #99BC85; font-size:20px;'>**Desenvolver um trabalho completo com estrutura teórica, revisão bibliográfica e análise crítica.** </span>
+
+---
+
+<span style='color: #99BC85; font-size:18px;'> 🧠 **Tema Central** </span>
+Impacto da Inteligência Artificial no mercado de trabalho.
+
+---
+
+<span style='color: #99BC85; font-size:18px;'> 📑 **Estrutura (ABNT)** </span>
+
+1. Introdução
+2. Justificativa
+3. Revisão bibliográfica
+4. Desenvolvimento
+   - Capítulo 1
+   - Capítulo 2
+   - Capítulo 3
+5. Considerações finais
+6. Referências
+
+---
+
+<span style='color: #99BC85; font-size:18px;'>🗓️ **Cronograma** </span>
+
+- Pesquisa teórica — 7 dias
+- Capítulo 1 — 5 dias
+- Capítulo 2 — 5 dias
+- Capítulo 3 — 5 dias
+- Revisão e formatação — 4 dias
+
+---
+
+<span style='color: #99BC85; font-size:18px;'>📘 **Conteúdo obrigatório** </span>
+
+- Conceitos fundamentais de IA
+- Autores clássicos (Turing, McCarthy, Minsky)
+- Redes neurais
+- IA generativa
+- Impactos econômicos e sociais
+- Gráficos comparativos (2010–2024)
+
+---
+
+<span style='color: #99BC85; font-size:18px;'>✔️ **Checklist antes da entrega**</span>
+
+- Revisão gramatical
+- Citações conforme ABNT
+- Numeração das seções
+- Figuras com legenda
+- Revisão de coerência e coesão
+
+> Incluir comparação entre abordagens e autores contemporâneos.
+MD
+)
+
+Task.create!(
+  title: "Planejar festa de aniversário com 50 convidados",
+  content: <<~MD
+<span style='color: #99BC85; font-size:20px;'> **Planejar local, orçamento, alimentação, decoração e cronograma.**</span>
+
+---
+
+<span style='color: #99BC85; font-size:18px;'>📍 **Local** </span>
+
+- Salão ou espaço aberto
+- Acessibilidade
+- Estacionamento
+- Capacidade
+
+---
+
+<span style='color: #99BC85; font-size:18px;'>💰 **Orçamento Detalhado**</span>
+
+- Alimentação (buffet / finger food)
+- Bebidas
+- Decoração
+- Mobiliário
+- DJ / música
+- Bolo, doces e lembranças
+
+---
+
+<span style='color: #99BC85; font-size:18px;'>👥 **Lista de Convidados**</span>
+
+- Criar lista nominal (50 pessoas)
+- Enviar convites digitais
+- Criar planilha de RSVP
+
+---
+
+<span style='color: #99BC85; font-size:18px;'>🍽️ **Menu**</span>
+
+- Entradas
+- Pratos principais
+- Sobremesas
+- Opções vegetarianas e veganas
+
+---
+
+<span style='color: #99BC85; font-size:18px;'>🎉 **Decoração**</span>
+
+- Definir tema
+- Comprar itens
+- Montar mesa principal
+
+---
+
+<span style='color: #99BC85; font-size:18px;'>📅 **Logística do Dia**</span>
+
+- Buscar bolo
+- Chegada do fotógrafo
+- Receber equipe do buffet
+- Testar som
+- Organizar área de presentes
+
+---
+
+<span style='color: #99BC85; font-size:18px;'>✔️ **Checklist Final** </span>
+
+- Confirmar fornecedores (48h antes)
+- Limpeza do local
+- Mobiliário suficiente
+- Cronograma final do evento
+
+> Incluir alternativas de cardápio e controle do orçamento.
+MD
+)
