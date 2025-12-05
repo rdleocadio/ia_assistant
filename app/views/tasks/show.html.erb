@@ -3,7 +3,7 @@
 
     <!-- BLOCO PRINCIPAL -->
     <div class="task-main">
-      <h1 class="task-title"><%= @task.title %></h1>
+      <h1 class="task-title"><% @task.title %></h1>
 
       <div class="task-content">
         <%= raw(render_markdown(@task.content)) %>

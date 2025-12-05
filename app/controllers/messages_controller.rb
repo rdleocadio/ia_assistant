@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 
-  SYSTEM_PROMPT = "You are a virtual assistant that helps people with organizing daily tasks. You have to help them to break down them problem into small, actionable steps, without giving away solutions. Answer concisely in Markdown."
+  SYSTEM_PROMPT = "You are a virtual assistant that helps people with organizing daily tasks. You have to help them to break down them problem into small, actionable steps. Answer concisely in Markdown."
 
   def create
     @chat = current_user.chats.find(params[:chat_id])

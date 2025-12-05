@@ -11,8 +11,8 @@ user = User.create!(
 Task.create!(
   title: "Organizar viagem para Portugal - 12 dias",
   content: <<~MD
-
-<span style='color: #99BC85; font-size:20px;'> **Planejar uma viagem completa incluindo traslados, hospedagem, alimentação, passeios, reservas e documentos.** </span>
+<span style='color: #99BC85; font-size:24px;'>**Organização da Viagem – 12 dias em Portugal**</span>
+<span style='color: #99BC85; font-size:20px;'>Planejar uma viagem completa incluindo traslados, hospedagem, alimentação, passeios, reservas e documentos.</span>
 
 ---
 
@@ -94,7 +94,9 @@ MD
 Task.create!(
   title: "Desenvolver trabalho acadêmico sobre Inteligência Artificial",
   content: <<~MD
-<span style='color: #99BC85; font-size:20px;'>**Desenvolver um trabalho completo com estrutura teórica, revisão bibliográfica e análise crítica.** </span>
+
+<span style='color: #99BC85; font-size:24px;'>**Trabalho Acadêmico – Inteligência Artificial (ABNT)**</span>
+<span style='color: #99BC85; font-size:20px;'>Desenvolver um trabalho completo com estrutura teórica, revisão bibliográfica e análise crítica.</span>
 
 ---
 
@@ -153,7 +155,9 @@ MD
 Task.create!(
   title: "Planejar festa de aniversário com 50 convidados",
   content: <<~MD
-<span style='color: #99BC85; font-size:20px;'> **Planejar local, orçamento, alimentação, decoração e cronograma.**</span>
+
+  <span style='color: #99BC85; font-size:24px;'> **Festa de Aniversário – Planejamento Completo (50 convidados)** </span>
+  <span style='color: #99BC85; font-size:20px;'> Planejar local, orçamento, alimentação, decoração e cronograma.</span>
 
 ---
 
